@@ -107,7 +107,7 @@ def iter_estimators_which_can_be_tested():
                 | preprocessing.StandardScaler()
                 | linear_model.LinearRegression()
             ),
-            preprocessing.MinMaxScaler() | anomaly.HalfSpaceTrees(),
+            preprocessing.MinMaxScaler() | anomaly.HalfSpaceTrees(seed=42),
             (
                 preprocessing.StandardScaler()
                 | compat.convert_sklearn_to_river(sk_linear_model.SGDRegressor(tol=1e-10))
